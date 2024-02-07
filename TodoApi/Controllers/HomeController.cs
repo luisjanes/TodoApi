@@ -27,7 +27,7 @@ namespace TodoApi.Controllers
             return todo;
         }
 
-        [HttpPut("/todo{id:int}")]
+        [HttpPut("/todo/{id:int}")]
         public Todo Update(int id, [FromBody] Todo todo, [FromServices] TodoDbContext context)
         {
             var model = context.Todos.FirstOrDefault(x=>x.Id == id);
@@ -41,7 +41,7 @@ namespace TodoApi.Controllers
             return model;
         }
 
-        [HttpDelete("/todo{id:int}")]
+        [HttpDelete("/todo/{id:int}")]
         public Todo Delete(int id, [FromServices] TodoDbContext context)
         {
             var model = context.Todos.FirstOrDefault(x => x.Id == id);
